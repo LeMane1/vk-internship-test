@@ -17,11 +17,27 @@ interface ICounterProps {
 
 export const Counter: React.FC<ICounterProps> = ({
   type = 'primary',
-  size = 8,
+  size = 24,
   hasStroke = false,
-  quantity = 9,
+  quantity = 0,
   hasPulse = false
 }) => {
+
+  const validateQuantity = (quantity: number | string): string => {
+    if (typeof quantity == "number"){
+      if (quantity > 99){
+        return '99+'
+      }else{
+        return quantity.toString()
+      }
+    }else{
+      if (quantity.length > 3){
+        return quantity.slice(0,3)
+      }else{
+        return quantity
+      }
+    }
+  }
 
   return (
     <>
@@ -32,7 +48,7 @@ export const Counter: React.FC<ICounterProps> = ({
                           ${hasStroke ? 'counter-stroke' : ''}
         `}>
           {!restrictedTextSizes.includes(size as PulseIndicatorSizeTypes) &&
-          <p className={`counter-text-size-${size}`}>{quantity}</p>}
+          <p className={`counter-text-size-${size}`}>{validateQuantity(quantity)}</p>}
         </div>
       </PulseIndicator>
     </>
