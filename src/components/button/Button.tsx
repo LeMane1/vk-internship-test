@@ -1,6 +1,7 @@
 import { Counter } from 'src/components/counter/Counter';
 import type {CounterSizes, ICounterProps} from 'src/components/counter/Counter';
 import './Button.styl'
+import Loader from 'src/assets/loader.svg'
 
 type ButtonTypes = 'primary' | 'secondary'
 type ButtonSizes = 28 | 36 | 56
@@ -20,7 +21,7 @@ export const Button: React.FC<IButtonProps> = ({
   type = 'primary',
   size = 56,
   isActive = true,
-  // isLoading = false,
+  isLoading = false,
   counter,
   onClick
 }) => {
@@ -53,7 +54,9 @@ export const Button: React.FC<IButtonProps> = ({
         `}
         onClick={onClick}
       >
-        <div className='content-wrapper'>
+        {<div className={`  content-wrapper
+                            ${isLoading ? 'content-hidden' : ''}
+        `}>
           <span className='button-text'>{children}</span>
           {counter && counter?.quantity &&
           <Counter
@@ -64,7 +67,14 @@ export const Button: React.FC<IButtonProps> = ({
             hasStroke={counter.hasStroke}
             hasPulse={counter.hasPulse}
           />}
-        </div>
+        </div>}
+
+        {<div
+          className={`loader-wrapper
+                      ${isLoading ? '' : 'loader-hidden'}
+          `}>
+          <img src={Loader} className="loader"/>
+        </div>}
       </button>
     </div>
   )

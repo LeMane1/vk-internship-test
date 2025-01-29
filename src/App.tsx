@@ -19,6 +19,7 @@ function App() {
       />
       <Button
         isActive={true}
+        isLoading={false}
         size={56}
         type='primary'
         counter={CustomCounter}
