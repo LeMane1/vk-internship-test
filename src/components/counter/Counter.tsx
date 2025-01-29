@@ -6,12 +6,13 @@ export type CounterSizes = 8 | 12 | 16 | 20 | 24
 
 const restrictedTextSizes: number[] = [8, 12]
 
-interface ICounterProps {
+export interface ICounterProps {
   type?: СounterTypes;
   size?: CounterSizes;
   hasStroke?: boolean;
-  quantity?: number | string;
+  quantity: number | string;
   hasPulse?: boolean;
+  customColor?: string;
 }
 
 export const Counter: React.FC<ICounterProps> = ({
@@ -19,7 +20,8 @@ export const Counter: React.FC<ICounterProps> = ({
   size = 24,
   hasStroke = false,
   quantity = 0,
-  hasPulse = false
+  hasPulse = false,
+  customColor = ''
 }) => {
 
   const getValidatedQuantity = (quantity: number | string): string => {
@@ -40,8 +42,16 @@ export const Counter: React.FC<ICounterProps> = ({
 
   return (
     <>
-      <PulseIndicator isActive={hasPulse && restrictedTextSizes.includes(size)} type={type}>
-        <div className={` counter-wrapper
+      <PulseIndicator
+        isActive={hasPulse && restrictedTextSizes.includes(size)}
+        type={type}
+        customColor={customColor}
+      >
+        <div 
+          style={{
+            backgroundColor: customColor
+          }}
+          className={` counter-wrapper
                           counter-size-${size}
                           counter-type-${type}
                           ${hasStroke ? 'counter-stroke' : ''}

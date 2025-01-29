@@ -1,0 +1,88 @@
+@import '../../styles'
+
+.button-wrapper
+  position static
+
+.button
+  border none
+  position relative
+  overflow hidden
+
+.button:hover
+  cursor pointer
+
+.button:disabled
+  opacity .36
+  cursor not-allowed
+
+// Overlay
+.overlay
+  &:after
+    content ""
+    position absolute
+    width 100%
+    height 100%
+    background-color white
+    transform scale(0)
+    transform-origin left
+    top 0
+    left 0
+    display block
+    border-radius 50%
+    opacity 0
+    transition all .2s cubic-bezier(0, -0.3, 0.5, 1.3)
+  
+  &:hover:after
+    transform scale(1)
+    border-radius 0px
+    transition all .2s cubic-bezier(0, -0.3, 0.5, 1.3)
+    opacity .12
+
+  &:active:after
+    transform scale(1)
+    border-radius 0px 
+    transition all .2s cubic-bezier(0, -0.3, 0.5, 1.3)
+    opacity .2
+
+// Types
+.button-type-primary
+  background-color #FF7700
+  color white
+
+.button-type-secondary
+  background-color secondary-color
+  color #2E2F33
+
+// Sizes
+.button-size-28
+  height 28px
+  padding 6px 10px
+  font-size 13px
+  border-radius 9px
+
+.button-size-36
+  height 36px
+  padding 8px 12px
+  font-size 15px
+  border-radius 12px
+
+.button-size-56
+  height 56px
+  padding 16px
+  font-size 17px
+  border-radius 16px
+
+// Text and counter
+.content-wrapper
+  display flex
+  flex-wrap wrap
+  align-items center
+
+.button-size-28 .content-wrapper > :last-child
+  margin-left: 4px
+
+.button-size-36 .content-wrapper > :last-child
+  margin-left: 6px
+
+.button-size-56 .content-wrapper > :last-child
+  margin-left: 8px
