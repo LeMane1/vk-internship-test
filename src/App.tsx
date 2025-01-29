@@ -4,7 +4,7 @@ import { Button } from './components/button/Button'
 function App() {
   return (
     <>
-      <Counter size={24} hasPulse={false} quantity={1}/>
+      <Counter size={12} hasPulse={true} quantity={1}/>
       <Button>
         Что-то сделать
       </Button>

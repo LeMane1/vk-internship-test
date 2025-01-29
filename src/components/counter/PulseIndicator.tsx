@@ -17,9 +17,7 @@ export const PulseIndicator:React.FC<IPulseIndicatorProps> = ({
       <div className={` pulse-indicator
                         pulse-indicator-${type}
       `}>
-          <div className="children-wrapper">
-            {children}
-          </div>
+        {children}
         {isActive && <div className="pulse one"></div>}
         {isActive && <div className="pulse two"></div>}
       </div>
