@@ -1,26 +1,32 @@
 @import '../../styles'
 
+.pulse-wrapper{
+  position static
+}
+
+.children-wrapper{
+  width fit-content
+  height fit-content
+}
+
 .pulse-indicator {
   position relative
+  width fit-content
+  height fit-content
   display flex
   align-items center
   justify-content center
 }
 
-.pulse-indicator-size-8{
-  width 8px
-  height 8px
-}
-
-.pulse-indicator-size-12{
-  width 12px
-  height 12px
-}
-
-.pulse-indicator .children-wrapper,
-.pulse-indicator .pulse {
+.pulse {
   position absolute
   border-radius 999px
+  width 100%
+  height 100%
+  animation-name: pulse-scale-fade;
+  animation-iteration-count: infinite; 
+  animation-duration: 2s;
+  transform-origin center
 }
 
 .pulse-indicator-primary .pulse{
@@ -31,29 +37,11 @@
   background-color secondary-color
 }
 
-.pulse-indicator-size-8 .children-wrapper,
-.pulse-indicator-size-8 .pulse {
-  width 8px
-  height 8px
-}
-
-.pulse-indicator-size-12 .children-wrapper,
-.pulse-indicator-size-12 .pulse {
-  width 12px
-  height 12px
-}
-
-.pulse-indicator .pulse {
-  animation-name: red-dot-scale-fade;
-  animation-iteration-count: infinite; 
-  animation-duration: 2s;
-}
-
 .pulse-indicator .pulse.two {
   animation-delay: 0.25s;
 }
 
-@keyframes red-dot-scale-fade {
+@keyframes pulse-scale-fade {
   0% {
     opacity: 0.5;
     transform: scale(1);
