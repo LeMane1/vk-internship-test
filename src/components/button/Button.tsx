@@ -43,6 +43,13 @@ export const Button: React.FC<IButtonProps> = ({
     }
   }
 
+  const getTruncatedText = (buttonText: string): string => {
+    if (buttonText.length > 21){
+      return buttonText.slice(0, 21) + '…'
+    }
+    return buttonText
+  }
+
   return (
     <div className='button-wrapper'>
       <button 
@@ -50,14 +57,14 @@ export const Button: React.FC<IButtonProps> = ({
         className={`button
                     button-type-${type}
                     button-size-${size}
-                    ${isActive ? 'overlay' : ''}
+                    ${!isActive || isLoading? '' : 'overlay'}
         `}
         onClick={onClick}
       >
         {<div className={`  content-wrapper
                             ${isLoading ? 'content-hidden' : ''}
         `}>
-          <span className='button-text'>{children}</span>
+          <span className='button-text'>{getTruncatedText(children)}</span>
           {counter && counter?.quantity &&
           <Counter
             size={getCounterSize(size)}

@@ -8,8 +8,8 @@
   position relative
   overflow hidden
 
-.button:hover
-  cursor pointer
+// .button:hover
+//   cursor pointer
 
 .button:disabled
   opacity .36
@@ -34,6 +34,9 @@
     border-radius 50%
     opacity 0
     transition all .2s cubic-bezier(0, -0.3, 0.5, 1.3)
+  
+  &:hover
+    cursor pointer
   
   &:hover:after
     transform scale(1)
@@ -99,10 +102,13 @@
   width 100%
   height 100%
 
+  &:hover
+    cursor wait
+
   &:before
     content ""
     position absolute
-    width 30%
+    width 33%
     height 100%
     opacity .1
     background rgb(2,0,36)
