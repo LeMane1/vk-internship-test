@@ -18,6 +18,7 @@
     "paths": {
       "src/*": ["src/*"],
     },
+    "types": ["vitest/globals"],
 
     /* Linting */
     "strict": true,
@@ -26,5 +27,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src", "src/setupTests.ts"]
 }
