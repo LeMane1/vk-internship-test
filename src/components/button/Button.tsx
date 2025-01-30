@@ -64,7 +64,12 @@ export const Button: React.FC<IButtonProps> = ({
         {<div className={`  content-wrapper
                             ${isLoading ? 'content-hidden' : ''}
         `}>
-          <span className='button-text'>{getTruncatedText(children)}</span>
+          <span className={`
+            button-text
+            ${counter && counter?.quantity ? 'text-margin' : ''}
+          `}>
+            {getTruncatedText(children)}
+          </span>
           {counter && counter?.quantity &&
           <Counter
             size={getCounterSize(size)}
