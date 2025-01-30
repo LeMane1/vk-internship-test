@@ -15,7 +15,7 @@ export const PulseIndicator:React.FC<IPulseIndicatorProps> = ({
   customColor = ''
 }) => {
   return (
-    <div className='pulse-wrapper'>
+    <div className='pulse-wrapper' data-testid="pulse-indicator">
       <div className={` pulse-indicator
                         pulse-indicator-${type}
       `}>

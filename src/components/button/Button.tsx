@@ -82,6 +82,7 @@ export const Button: React.FC<IButtonProps> = ({
         </div>}
 
         {<div
+          data-testid="loading-indicator"
           className={`loader-wrapper
                       ${isLoading ? '' : 'loader-hidden'}
           `}>
