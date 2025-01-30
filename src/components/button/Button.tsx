@@ -83,7 +83,8 @@ export const Button = ({
 
         {<div
           data-testid="loading-indicator"
-          className={`loader-wrapper
+          className={`loader-type-${type}
+                      loader-wrapper
                       ${isLoading ? '' : 'loader-hidden'}
           `}>
           <img src={Loader} className="loader"/>
