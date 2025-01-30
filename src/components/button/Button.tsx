@@ -16,7 +16,7 @@ interface IButtonProps{
   onClick?: () => void;
 }
 
-export const Button: React.FC<IButtonProps> = ({
+export const Button = ({
   children = '',
   type = 'primary',
   size = 56,
@@ -24,7 +24,7 @@ export const Button: React.FC<IButtonProps> = ({
   isLoading = false,
   counter,
   onClick
-}) => {
+}: IButtonProps) => {
 
   const getCounterSize = (buttonSize: ButtonSizes): CounterSizes => {
     switch (buttonSize) {

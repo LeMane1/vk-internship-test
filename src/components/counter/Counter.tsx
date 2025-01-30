@@ -15,19 +15,21 @@ export interface ICounterProps {
   customColor?: string;
 }
 
-export const Counter: React.FC<ICounterProps> = ({
+export const Counter = ({
   type = 'primary',
   size = 24,
   hasStroke = false,
   quantity = 0,
   hasPulse = false,
   customColor = ''
-}) => {
+}: ICounterProps) => {
 
   const getValidatedQuantity = (quantity: number | string): string => {
     if (typeof quantity == "number"){
       if (quantity > 99){
         return '99+'
+      }else if (quantity < 0){
+        return '0'
       }else{
         return quantity.toString()
       }

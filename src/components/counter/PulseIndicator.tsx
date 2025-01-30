@@ -8,12 +8,12 @@ interface IPulseIndicatorProps{
   customColor?: string;
 }
 
-export const PulseIndicator:React.FC<IPulseIndicatorProps> = ({
+export const PulseIndicator = ({
   children,
   isActive = false,
   type = 'primary',
   customColor = ''
-}) => {
+}: IPulseIndicatorProps) => {
   return (
     <div className='pulse-wrapper' data-testid="pulse-indicator">
       <div className={` pulse-indicator
